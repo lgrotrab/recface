@@ -20,7 +20,7 @@ class Register extends React.Component {
   };
   onSubmitRegister = (event) => {
     event.preventDefault();
-    fetch("http://localhost:3000/register", {
+    fetch("https://stormy-castle-71016.herokuapp.com/register", {
       method: "post",
       headers: {
         "content-type": "application/json",
@@ -33,7 +33,7 @@ class Register extends React.Component {
     })
       .then((response) => response.json())
       .then((user) => {
-        if (user) {
+        if (user.id) {
           this.props.loadUser(user);
           this.props.onRouteChange("home");
         }
